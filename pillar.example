@@ -6,7 +6,11 @@ mongodb:
     name: mongodb-org-database
   service:
     name: mongod
-  config: /etc/mongod.conf
+  mongod:
+    config_file: /etc/mongod.conf
+    config:
+      storage:
+        dbPath: /var/lib/mongodb
 
   tofs:
     # The files_switch key serves as a selector for alternative

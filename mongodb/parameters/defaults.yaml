@@ -6,8 +6,9 @@
 values:
   pkg:
     name: mongodb-org-database
-  config: /etc/mongod.conf
   rootgroup: root
+  mongod:
+    config_file: /etc/mongod.conf
   service:
     name: mongod
   # Just here for testing

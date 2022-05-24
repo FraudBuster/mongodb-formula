@@ -3,7 +3,6 @@
 ---
 values:
   added_in_defaults: defaults_value
-  config: /etc/mongod.conf
   map_jinja:
     sources:
     - Y:G@osarch
@@ -17,6 +16,7 @@ values:
     config:
       storage:
         dbPath: /var/lib/mongodb
+    config_file: /etc/mongod.conf
   pkg:
     name: mongodb-org-database
   repo:

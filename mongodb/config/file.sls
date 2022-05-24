@@ -12,7 +12,7 @@ include:
 
 mongodb-config-file-file-managed:
   file.managed:
-    - name: {{ mongodb.config }}
+    - name: {{ mongodb.mongod.config_file }}
     - source: {{ files_switch(['mongod.conf.tmpl.jinja'],
                               lookup='mongodb-config-file-file-managed'
                  )
