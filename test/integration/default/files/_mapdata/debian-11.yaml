@@ -3,14 +3,7 @@
 ---
 values:
   added_in_defaults: defaults_value
-  added_in_lookup: lookup_value
-  added_in_pillar: pillar_value
-  arch: amd64
-  config: /etc/template-formula.conf
-  lookup:
-    added_in_lookup: lookup_value
-    master: template-master
-    winner: lookup
+  config: /etc/mongod.conf
   map_jinja:
     sources:
     - Y:G@osarch
@@ -20,25 +13,16 @@ values:
     - C@mongodb:lookup
     - C@mongodb
     - Y:G@id
-  master: template-master
+  mongod:
+    config:
+      storage:
+        dbPath: /var/lib/mongodb
   pkg:
-    name: bash
+    name: mongodb-org-database
+  repo:
+    gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
+    name: deb [arch=amd64,arm64] http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main
   rootgroup: root
   service:
-    name: systemd-journald
-  subcomponent:
-    config: /etc/mongodb-subcomponent-formula.conf
-  tofs:
-    files_switch:
-    - any/path/can/be/used/here
-    - id
-    - roles
-    - osfinger
-    - os
-    - os_family
-    source_files:
-      mongodb-config-file-file-managed:
-      - example.tmpl.jinja
-      mongodb-subcomponent-config-file-file-managed:
-      - subcomponent-example.tmpl.jinja
-  winner: pillar
+    name: mongod
+  winner: defaults

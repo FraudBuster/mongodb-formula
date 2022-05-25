@@ -5,14 +5,11 @@
 ---
 values:
   pkg:
-    name: mongodb
+    name: mongodb-org-database
+  config: /etc/mongod.conf
   rootgroup: root
-  config: '/etc/mongodb'
   service:
-    name: mongodb
-  subcomponent:
-    config: '/etc/mongodb-subcomponent-formula.conf'
+    name: mongod
   # Just here for testing
   added_in_defaults: defaults_value
   winner: defaults
-...

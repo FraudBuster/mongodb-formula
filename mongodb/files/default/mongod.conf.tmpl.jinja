@@ -3,4 +3,7 @@
 # Your changes will be overwritten.
 ########################################################################
 
-This is an example file from SaltStack template-formula.
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+{{ mongod | yaml(False) }}

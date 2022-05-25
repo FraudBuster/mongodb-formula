@@ -13,7 +13,7 @@ include:
 mongodb-config-file-file-managed:
   file.managed:
     - name: {{ mongodb.config }}
-    - source: {{ files_switch(['example.tmpl'],
+    - source: {{ files_switch(['mongod.conf.tmpl.jinja'],
                               lookup='mongodb-config-file-file-managed'
                  )
               }}
@@ -24,5 +24,10 @@ mongodb-config-file-file-managed:
     - template: jinja
     - require:
       - sls: {{ sls_package_install }}
+ {%- set mongod = mongodb.get('mongod', {}).get('config',{}) %}
+ {%- if mongod %}
     - context:
-        mongodb: {{ mongodb | json }}
+        mongod: {{ mongod | json }}
+{%- endif %}
+    - defaults:
+        mongod: {'storage': '/var/lib'}
