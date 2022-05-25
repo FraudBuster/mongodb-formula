@@ -2,7 +2,7 @@
 # vim: ft=yaml
 #
 # Set values specific to:
-#   salt['config.get']('os_family') == Suse.
+#   salt['config.get']('os_family') == Debian.
 #
 # You just need to add the key:values for this `os_family` that differ
 # from `defaults.yaml` + `<osarch>.yaml`.
@@ -12,6 +12,5 @@
 # values: {}
 ---
 values:
-  pkg:
-    name: mongodb-suse
-...
+  repo:
+    name: "deb [arch=amd64,arm64] http://repo.mongodb.org/apt/debian stretch/mongodb-org/5.0 main"
