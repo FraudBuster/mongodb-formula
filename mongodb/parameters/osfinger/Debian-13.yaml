@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set values specific to:
+#   salt['config.get']('os_family') == Debian.
+#
+# You just need to add the key:values for this `os_family` that differ
+# from `defaults.yaml` + `<osarch>.yaml`.
+#
+# If you do not need to provide defaults via the `os_family` config,
+# you can remove this file or provide at least an empty dict, e.g.
+# values: {}
+---
+values:
+  repo:
+    # yamllint disable-line rule:line-length
+    # Mongodb doesn't publish packages for Trixie yet, try installing the Bookworm version
+    name: "deb [arch=amd64,arm64] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main"
+    gpgkey: https://www.mongodb.org/static/pgp/server-8.0.asc
