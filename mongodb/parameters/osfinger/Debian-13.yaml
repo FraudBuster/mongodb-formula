@@ -13,7 +13,7 @@
 ---
 values:
   repo:
+    # Mongodb doesn't publish packages for Trixie yet, install the Bookworm version
     # yamllint disable-line rule:line-length
-    # Mongodb doesn't publish packages for Trixie yet, try installing the Bookworm version
-    name: "deb [arch=amd64,arm64] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main"
+    name: "deb [signed-by=/etc/apt/keyrings/mongodb.pgp arch=amd64,arm64] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main"
     gpgkey: https://www.mongodb.org/static/pgp/server-8.0.asc
